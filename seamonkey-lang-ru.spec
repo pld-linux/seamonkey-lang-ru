@@ -4,12 +4,12 @@
 Summary:	Russian resources for SeaMonkey
 Summary(pl):	Rosyjskie pliki jêzykowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
-Version:	1.0.5
+Version:	1.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
-# Source0-md5:	65bf993b8c5e4696f04ef089589eacc5
+# Source0-md5:	9563c9132a2c3cd3df4d91820e41d911
 Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-%{_lare}-0.9x.xpi
 # Source1-md5:	2febfba49fcc6819eb99997a7c2082ff
 Source2:	gen-installed-chrome.sh
@@ -42,7 +42,7 @@ install -d $RPM_BUILD_ROOT%{_chromedir}
 
 install chrome/{%{_reg},%{_lare},%{_lang}-unix,enigmail-%{_reg}}.jar $RPM_BUILD_ROOT%{_chromedir}
 install lang-%{_lang}-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
-cp -r searchplugins myspell defaults $RPM_BUILD_ROOT%{_datadir}/seamonkey
+cp -r searchplugins dictionaries defaults $RPM_BUILD_ROOT%{_datadir}/seamonkey
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,4 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/seamonkey/searchplugins/*
 %{_datadir}/seamonkey/defaults/messenger/%{_reg}
 %{_datadir}/seamonkey/defaults/profile/%{_reg}
-%{_datadir}/seamonkey/myspell/*
+%{_datadir}/seamonkey/dictionaries/*
