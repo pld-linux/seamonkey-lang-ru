@@ -2,7 +2,7 @@
 %define	_reg	RU
 %define	_lare	%{_lang}-%{_reg}
 Summary:	Russian resources for SeaMonkey
-Summary(pl):	Rosyjskie pliki jêzykowe dla SeaMonkeya
+Summary(pl.UTF-8):   Rosyjskie pliki jÄ™zykowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
 Version:	1.1
 Release:	1
@@ -26,8 +26,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Russian resources for SeaMonkey.
 
-%description -l pl
-Rosyjskie pliki jêzykowe dla SeaMonkeya.
+%description -l pl.UTF-8
+Rosyjskie pliki jÄ™zykowe dla SeaMonkeya.
 
 %prep
 %setup -q -c
