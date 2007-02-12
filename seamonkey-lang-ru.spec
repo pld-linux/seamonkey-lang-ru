@@ -2,7 +2,7 @@
 %define	_reg	RU
 %define	_lare	%{_lang}-%{_reg}
 Summary:	Russian resources for SeaMonkey
-Summary(pl.UTF-8):   Rosyjskie pliki językowe dla SeaMonkeya
+Summary(pl.UTF-8):	Rosyjskie pliki językowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
 Version:	1.1
 Release:	1
