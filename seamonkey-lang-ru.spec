@@ -1,13 +1,18 @@
+%define	_lang	ru
+%define	_reg	RU
+%define	_lare	%{_lang}-%{_reg}
 Summary:	Russian resources for SeaMonkey
 Summary(pl):	Rosyjskie pliki jêzykowe dla SeaMonkeya
-Name:		seamonkey-lang-ru
-Version:	1.0
+Name:		seamonkey-lang-%{_lang}
+Version:	1.1.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.ru-RU.langpack.xpi
-# Source0-md5:	cc413d89e9f2363eb16804c6cbeb00de
-Source1:	gen-installed-chrome.sh
+Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
+# Source0-md5:	75dd88deaff6dc9866c176b33e79101d
+Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-%{_lare}-0.9x.xpi
+# Source1-md5:	2febfba49fcc6819eb99997a7c2082ff
+Source2:	gen-installed-chrome.sh
 URL:		http://www.mozilla.org/projects/seamonkey/
 BuildRequires:	unzip
 Requires(post,postun):	seamonkey >= %{version}
@@ -25,18 +30,19 @@ Russian resources for SeaMonkey.
 Rosyjskie pliki jêzykowe dla SeaMonkeya.
 
 %prep
-%setup -q -c -T
-unzip %{SOURCE0}
-install %{SOURCE1} .
-./gen-installed-chrome.sh locale chrome/{RU,ru-RU,ru-unix}.jar > lang-ru-installed-chrome.txt
+%setup -q -c
+%{__unzip} -o -qq %{SOURCE1}
+install %{SOURCE2} .
+./gen-installed-chrome.sh locale chrome/{%{_reg},%{_lare},%{_lang}-unix,enigmail-%{_reg}}.jar \
+	> lang-%{_lang}-installed-chrome.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_chromedir}
 
-install chrome/{RU,ru-RU,ru-unix}.jar $RPM_BUILD_ROOT%{_chromedir}
-install lang-ru-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
-cp -r searchplugins myspell defaults $RPM_BUILD_ROOT%{_datadir}/seamonkey
+install chrome/{%{_reg},%{_lare},%{_lang}-unix,enigmail-%{_reg}}.jar $RPM_BUILD_ROOT%{_chromedir}
+install lang-%{_lang}-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
+cp -r searchplugins dictionaries defaults $RPM_BUILD_ROOT%{_datadir}/seamonkey
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -49,11 +55,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_chromedir}/ru-RU.jar
-%{_chromedir}/ru-unix.jar
-%{_chromedir}/RU.jar
-%{_chromedir}/lang-ru-installed-chrome.txt
+%{_chromedir}/%{_reg}.jar
+%{_chromedir}/%{_lare}.jar
+%{_chromedir}/%{_lang}-unix.jar
+%{_chromedir}/enigmail-%{_reg}.jar
+%{_chromedir}/lang-%{_lang}-installed-chrome.txt
 %{_datadir}/seamonkey/searchplugins/*
-%{_datadir}/seamonkey/defaults/messenger/RU
-%{_datadir}/seamonkey/defaults/profile/RU
-%{_datadir}/seamonkey/myspell/*
+%{_datadir}/seamonkey/defaults/messenger/%{_reg}
+%{_datadir}/seamonkey/defaults/profile/%{_reg}
+%{_datadir}/seamonkey/dictionaries/*
