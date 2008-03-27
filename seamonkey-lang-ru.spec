@@ -4,12 +4,12 @@
 Summary:	Russian resources for SeaMonkey
 Summary(pl.UTF-8):	Rosyjskie pliki językowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
-Version:	1.1.8
+Version:	1.1.9
 Release:	1
 License:	MPL 1.1 or GPL v2+ or LGPL v2.1+
 Group:		X11/Applications/Networking
 Source0:	http://releases.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
-# Source0-md5:	be009d969529f027b719045594902711
+# Source0-md5:	21e189a853b9e0472fcfb4ed01fa3eeb
 Source1:	http://www.mozilla-enigmail.org/download/release/0.95/enigmail-%{_lare}-0.95.xpi
 # Source1-md5:	323d5e3192772ca48671d74518899bc7
 Source2:	gen-installed-chrome.sh
